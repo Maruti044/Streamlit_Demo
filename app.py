@@ -74,8 +74,6 @@ st.table(df.head())
 
 st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
 st.image("https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png", width=200)
-st.audio("https://file-examples.com/storage/fe99232c7e6301519082f42/2017/11/file_example_MP3_700KB.mp3")
-st.video("https://file-examples.com/storage/fe99232c7e6301519082f42/2017/04/file_example_MP4_480_1_5MG.mp4")
 
 
 
