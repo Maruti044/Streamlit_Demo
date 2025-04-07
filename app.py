@@ -1,4 +1,4 @@
-"""import streamlit as st
+import streamlit as st
 import pandas as pd
 import numpy as np
 import time
@@ -11,12 +11,7 @@ from nltk.stem import WordNetLemmatizer
 import re
 from nltk.corpus import stopwords
 import spacy
-nltk.download('averaged_perceptron_tagger') """
-
-import subprocess
-# Run the NLTK setup script
-subprocess.run(["python", "nltk_setup.py"])
-
+nltk.download('averaged_perceptron_tagger') 
 
 st.title("Natural Language Processing Deployment")
 # text_input Implementation
