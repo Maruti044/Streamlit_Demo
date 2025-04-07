@@ -14,8 +14,14 @@ from nltk.corpus import stopwords
 # Download necessary NLTK data packages
 nltk.download('punkt')
 nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
+
 nltk.download('stopwords')
+try:
+    nltk.download('averaged_perceptron_tagger')
+except OSError:
+    st.error("averaged_perceptron_tagger is not availabel")
+
+
 
 st.title("Natural Language Processing Deployment")
 # text_input Implementation
