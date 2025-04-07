@@ -58,11 +58,11 @@ if button_clicked:
     st.subheader("Lemmatization ", divider="red")
     st.write(lemmas)
  # POS tagging
-    
+   """ 
    # nltk.download('averaged_perceptron_tagger')
     pos_tags = nltk.pos_tag(filtered)
     st.subheader("POS Tagging ", divider="green")
-    st.write(pos_tags)
+    st.write(pos_tags) """
 
 # Name Entity Recognition
     # Named Entity Recognition using spaCy
