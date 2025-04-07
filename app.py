@@ -3,15 +3,19 @@ import pandas as pd
 import numpy as np
 import time
 import nltk
-nltk.download('punkt')
-from nltk.tokenize import word_tokenize
-from nltk.stem import PorterStemmer
-nltk.download('wordnet')
-from nltk.stem import WordNetLemmatizer
 import re
-from nltk.corpus import stopwords
 import spacy
-nltk.download('averaged_perceptron_tagger') 
+
+#  imports 
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+from nltk.corpus import stopwords
+
+# Download necessary NLTK data packages
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
 
 st.title("Natural Language Processing Deployment")
 # text_input Implementation
@@ -61,11 +65,15 @@ if button_clicked:
     st.write(pos_tags)
 
 # Name Entity Recognition
-    #pip install spacy
-    #python -m spacy download en_core_web_sm
-    #import spacy
-    nlp = spacy.load("en_core_web_sm")
-    #doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
-    for ent in text1.ents:
-        st.write(ent.text, ent.label_)
-        #print(ent.text, ent.label_)
+    # Named Entity Recognition using spaCy
+    try:
+        nlp = spacy.load("en_core_web_sm")
+    except OSError:
+        st.error("spaCy model 'en_core_web_sm' not found. Please ensure it's included in your environment.")
+        nlp = None
+
+    if nlp:
+        doc = nlp(text)
+        entities = [(ent.text, ent.label_) for ent in doc.ents]
+        st.subheader("Named Entities:")
+        st.write(entities)
