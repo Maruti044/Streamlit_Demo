@@ -25,5 +25,5 @@ if button_clicked:
 # Tokenization
     nltk.download('punkt_tab')
     tokens = word_tokenize(text)
-    st.sub("Tokens of Given text :")
+    st.subheader("Tokens of Given text ", divider="gray")
     st.write(f" : {tokens}")
