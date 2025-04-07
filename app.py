@@ -22,7 +22,8 @@ if button_clicked:
     # Remove punctuation
     text = re.sub(r'[^a-zA-Z\s]', '', text)  # Keep only letters and spaces
     st.write(f"Processed Text : {text}")
-
+# Tokenization
     nltk.download('punkt_tab')
     tokens = word_tokenize(text)
-    st.write(f"Tokens of Given text : {tokens}")
+    st.sub("Tokens of Given text :")
+    st.write(f" : {tokens}")
