@@ -11,6 +11,7 @@ from nltk.stem import WordNetLemmatizer
 import re
 from nltk.corpus import stopwords
 import spacy
+nltk.download('averaged_perceptron_tagger')
 
 
 st.title("Natural Language Processing Deployment")
@@ -54,7 +55,7 @@ if button_clicked:
     st.subheader("Lemmatization ", divider="red")
     st.write(lemmas)
  # POS tagging
-    nltk.download('averaged_perceptron_tagger')
+    #nltk.download('averaged_perceptron_tagger')
     pos_tags = nltk.pos_tag(filtered)
     st.subheader("POS Tagging ", divider="green")
     st.write(pos_tags)
