@@ -13,6 +13,12 @@ import re
 
 st.title("Natural Language Processing Deployment")
 # text_input Implementation
-text_input_value = st.text_input("Enter some text:")
-st.write(f"You entered: {text_input_value}")
-#st.write("Nepal, nestled between China and India, spans a diverse landscape from the Himalayan mountains to fertile plains, covering an area slightly larger than Arkansas. Its population stands at 29.6 million, with a density of 206.61 per km², and a slight annual decline of 33,000, or 0.45%. The demographic breakdown shows a male-to-female ratio of 0.92 to 1, with median ages of 24.56 for males and 27.32 for females.")
+text = st.text_input("Enter some text:")
+
+button_clicked = st.button("Process Text", type="primary")
+if button_clicked:
+    # Text Processing
+    text = text.lower()  # Lowercase
+    # Remove punctuation
+    text = re.sub(r'[^a-zA-Z\s]', '', text)  # Keep only letters and spaces
+    st.write(f"Processed Text : {text}")
