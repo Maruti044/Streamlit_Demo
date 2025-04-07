@@ -58,11 +58,15 @@ if button_clicked:
     st.subheader("Lemmatization ", divider="red")
     st.write(lemmas)
  # POS tagging
-    """ 
-    # nltk.download('averaged_perceptron_tagger')
+    try:
+      nlp= nltk.download('averaged_perceptron_tagger')
+    except OSError:
+        st.error("averaged_perceptron_tagger not found. Please ensure it's included in your environment.")
+        nlp = None
+    if np:
         pos_tags = nltk.pos_tag(filtered)
         st.subheader("POS Tagging ", divider="green")
-        st.write(pos_tags) """
+        st.write(pos_tags) 
 
 # Name Entity Recognition
     # Named Entity Recognition using spaCy
