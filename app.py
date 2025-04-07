@@ -2,11 +2,22 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
+import nltk
+nltk.download('punkt')
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+import re
 
 
-st.title("Welcon to Nepal in 2025")
-st.write("Nepal, nestled between China and India, spans a diverse landscape from the Himalayan mountains to fertile plains, covering an area slightly larger than Arkansas. Its population stands at 29.6 million, with a density of 206.61 per km², and a slight annual decline of 33,000, or 0.45%. The demographic breakdown shows a male-to-female ratio of 0.92 to 1, with median ages of 24.56 for males and 27.32 for females.")
+st.title("Natural Language Processing Deployment")
+# text_input Implementation
+text_input_value = st.text_input("Enter some text:")
+st.write(f"You entered: {text_input_value}")
+#st.write("Nepal, nestled between China and India, spans a diverse landscape from the Himalayan mountains to fertile plains, covering an area slightly larger than Arkansas. Its population stands at 29.6 million, with a density of 206.61 per km², and a slight annual decline of 33,000, or 0.45%. The demographic breakdown shows a male-to-female ratio of 0.92 to 1, with median ages of 24.56 for males and 27.32 for females.")
 
+"""
 # Input Widgets
 # Button Implementation
 button_clicked = st.button("Submit", type="primary")
@@ -65,25 +76,17 @@ st.subheader("This is a subheader")
 st.caption("This is a caption")
 st.code("print('Hello, Streamlit!')", language="python")
 st.json({"name": "John", "age": 30})
-
-
 df = pd.DataFrame(np.random.randn(10, 5), columns=("col %d" % i for i in range(5)))
 st.dataframe(df)
 st.table(df.head())
-
-
 st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
 st.image("https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png", width=200)
-
-
 
 progress_bar = st.progress(0)
 for i in range(100):
     time.sleep(0.01)
     progress_bar.progress(i + 1)
 st.success('Done!')
-
-
 
 with st.status('Downloading data...', expanded=True) as status:
     st.write("Finding data...")
@@ -92,10 +95,6 @@ with st.status('Downloading data...', expanded=True) as status:
     time.sleep(2)
     st.write("Saving data...")
     status.update(label="Download complete!", state="complete", expanded=False)
-
-
-
-
 
     # Layout Elements
 st.header("Layout Elements")
@@ -125,3 +124,4 @@ empty_space = st.empty()
 empty_space.write("This will be replaced.")
 time.sleep(2)
 empty_space.write("Replaced!")
+"""
