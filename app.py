@@ -13,6 +13,10 @@ from nltk.corpus import stopwords
 import spacy
 nltk.download('averaged_perceptron_tagger')
 
+import subprocess
+# Run the NLTK setup script
+subprocess.run(["python", "nltk_setup.py"])
+
 
 st.title("Natural Language Processing Deployment")
 # text_input Implementation
@@ -56,7 +60,7 @@ if button_clicked:
     st.write(lemmas)
  # POS tagging
     
-    nltk.download('averaged_perceptron_tagger')
+   # nltk.download('averaged_perceptron_tagger')
     pos_tags = nltk.pos_tag(filtered)
     st.subheader("POS Tagging ", divider="green")
     st.write(pos_tags)
